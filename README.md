@@ -1,5 +1,5 @@
 # Moving average filter
-Moving average buffer filter
+Moving average buffer filter for Mbed
 
 **_Buffer_** type can be:
  - `uint8_t` with maximum buffer length of **16843009**
@@ -7,7 +7,7 @@ Moving average buffer filter
  - `uint32_t` but added number can be as long as 31 bits which eaquals to maximum buffer length of **2**, 30bits number = max buffer length of **4**, etc.
 
 **_Buffer length_**:
-- "binary" length only: 2, 4, 8, 16, 32, 64, 128, 254, 512, 1024, 2048, 4096, 8192, 16384
+- "binary" length only: 2, 4, 8, 16, 32, 64, 128, etc.
 
 # Example
 ```cpp
@@ -28,8 +28,10 @@ int main() {
 ```
 
 ## Output
-> result: 255 = 255
+> result: 255
 > 
-> result: 239 = 235
+> result: 239
 > 
-> result: 224 = 220
+> result: 224
+> 
+> result: 224
