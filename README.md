@@ -2,9 +2,9 @@
 Moving average buffer filter for Mbed
 
 **_Buffer_** type can be:
- - `uint8_t` with maximum buffer length of **16843009**
- - `uint16_t` with maximum buffer length of **65537**
- - `uint32_t` but added number can be as long as 31 bits which eaquals to maximum buffer length of **2**, 30bits number = max buffer length of **4**, etc.
+ - `uint8_t` or `int8_t` with maximum buffer length of **16843009**
+ - `uint16_t` or `int16_t` with maximum buffer length of **65537**
+ - `uint32_t` or `int32_t` but added number can be as long as 30 bits which eaquals to maximum buffer length of **2**, 29 bits number = max buffer length of **4**, etc.
 
 **_Buffer length_**:
 - "binary" length only: 2, 4, 8, 16, 32, 64, 128, etc.
@@ -14,7 +14,7 @@ Moving average buffer filter for Mbed
 #include "mbed.h"
 #include "MovingAverage.h"
 
- // Buffer (and added samples) will by initialised as uint8_t, total 16 samples
+ // Buffer (and added samples) will be initialised as uint8_t, total 16 samples
 MovingAverage <uint8_t, 16> filter;
 
 int main() {
