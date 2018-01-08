@@ -28,11 +28,11 @@ template <class T, uint16_t N>
 MovingAverage<T, N>::MovingAverage():
   _first(true),
   _next(0),
+  _shift(0),
   _sum(0) {
 
   _result = 0;
-  _shift = 0;
-
+  
   while (N >> _shift != 1) {
     _shift++;
   }
@@ -57,16 +57,15 @@ T MovingAverage<T, N>::add(T value) {
   // fill buffer when using first
   if (_first) {
     _first = false;
-
     fill(value);
 
   } else {
-    _sum = _sum - (int32_t)_buffer[_next] + (int32_t)value;
+    _sum = _sum - _buffer[_next] + value;
     _buffer[_next] = value;
     _next = (_next + 1) & (N - 1);
   }
 
-  _result = (_sum + (N >> 1)) >> _shift; // equals to (_sum + (N / 2)) / N;
+  _result = (_sum + (N >> 1)) >> _shift; // same as (_sum + (N / 2)) / N;
 
   return _result;
 }
@@ -77,7 +76,7 @@ void MovingAverage<T, N>::fill(T value) {
     _buffer[i] = value;
   }
 
-  _sum = value * (T)N;
+  _sum = value * N;
   _next = 0;
 }
 
