@@ -13,6 +13,7 @@ class MovingAverage {
   T get();
   int32_t get_sum();
   void fill(T value);
+  void reset();
 
  private:
   bool _first;
@@ -78,6 +79,11 @@ void MovingAverage<T, N>::fill(T value) {
 
   _sum = value * N;
   _next = 0;
+}
+
+template <class T, uint16_t N>
+void MovingAverage<T, N>::reset() {
+  _first = true;
 }
 
 /*template <class T, uint16_t N>
