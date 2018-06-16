@@ -57,7 +57,6 @@ MovingAverage<T, N>::MovingAverage():
   _next(0),
   _shift(0),
   _sum(0) {
-
   _result = 0;
 
   while (N >> _shift != 1) {
@@ -80,7 +79,6 @@ int32_t MovingAverage<T, N>::get_sum() {
 
 template <class T, uint16_t N>
 T MovingAverage<T, N>::add(T value) {
-
   // fill buffer when using first
   if (_first) {
     _first = false;
@@ -92,7 +90,7 @@ T MovingAverage<T, N>::add(T value) {
     _next = (_next + 1) & (N - 1);
   }
 
-  _result = (_sum + (N >> 1)) >> _shift; // same as (_sum + (N / 2)) / N;
+  _result = (_sum + (N >> 1)) >> _shift;  // same as (_sum + (N / 2)) / N;
 
   return _result;
 }
@@ -111,33 +109,5 @@ template <class T, uint16_t N>
 void MovingAverage<T, N>::reset() {
   _first = true;
 }
-
-/*template <class T, uint16_t N>
-T MovingAverage<T, N>::get_median(bool hysteresis) {
-  T buffer_sorted[N];
-  T result;
-
-  for (int i = 0; i < N; i++) {
-    buffer_sorted[i] = _buffer[i];
-  }
-
-  for (int i = N - 1; i > 0; --i) {
-    for (int j = 0; j < i; ++j) {
-      if (buffer_sorted[j] > buffer_sorted[j + 1]) {
-        T dTemp = buffer_sorted[j];
-        buffer_sorted[j] = buffer_sorted[j + 1];
-        buffer_sorted[j + 1] = dTemp;
-      }
-    }
-  }
-
-  result = buffer_sorted[(N >> 1)];
-
-  if (hysteresis) {
-    result = ((result + (_hysteresis / 2)) / _hysteresis) * _hysteresis;
-  }
-
-  return result;
-}*/
 
 #endif
