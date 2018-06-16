@@ -14,7 +14,7 @@ Moving average buffer filter for Mbed and Arduino
 #include "mbed.h"
 #include "MovingAverage.h"
 
- // Buffer (and added samples) will be initialised as uint8_t, total 16 samples
+// Buffer (and added samples) will be initialised as uint8_t, total 16 samples
 MovingAverage <uint8_t, 16> filter;
 
 int main() {
@@ -30,7 +30,7 @@ int main() {
 ```cpp
 #include "MovingAverage.h"
 
- // Buffer (and added samples) will be initialised as uint8_t, total 16 samples
+// Buffer (and added samples) will be initialised as uint8_t, total 16 samples
 MovingAverage <uint8_t, 16> filter;
 
 void setup(){
@@ -44,6 +44,7 @@ void setup(){
     Serial.print("result: ");
     Serial.println(filter.get()); // get last result, without adding a newone
 }
+
 void loop(){
 
 }
