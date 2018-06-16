@@ -25,7 +25,9 @@ SOFTWARE.
 #ifndef MOVINGAVERAGE_H
 #define MOVINGAVERAGE_H
 
-#include "mbed.h"
+#if defined(__MBED__)
+  #include "mbed.h"
+#endif
 
 template <class T, uint16_t N>
 class MovingAverage {
@@ -57,7 +59,7 @@ MovingAverage<T, N>::MovingAverage():
   _sum(0) {
 
   _result = 0;
-  
+
   while (N >> _shift != 1) {
     _shift++;
   }
