@@ -9,7 +9,7 @@
 **_Buffer length_**:
 - "binary" length only: 2, 4, 8, 16, 32, 64, 128, etc.
 
-# Mbed example
+## Mbed example
 ```cpp
 #include "mbed.h"
 #include "MovingAverage.h"
@@ -26,7 +26,7 @@ int main() {
     return 0;
 }
 ```
-# Arduino example
+## Arduino example
 ```cpp
 #include "MovingAverage.h"
 
@@ -50,7 +50,7 @@ void loop(){
 }
 ```
 
-## Output
+### Output
 > result: 255
 > 
 > result: 239
