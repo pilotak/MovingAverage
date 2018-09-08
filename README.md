@@ -1,5 +1,5 @@
 # Moving average filter
-Moving average buffer filter for Mbed and Arduino
+[![Build Status](https://travis-ci.org/pilotak/MovingAverage.svg?branch=master)](https://travis-ci.org/pilotak/MovingAverage)
 
 **_Buffer_** type can be:
  - `uint8_t` or `int8_t` with maximum buffer length of **16843009**
