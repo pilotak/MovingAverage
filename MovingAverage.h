@@ -40,12 +40,14 @@ class MovingAverage {
   int32_t get_sum();
   void fill(T value);
   void reset();
+  void set_samples(uint16_t samples);
 
  private:
   bool _first;
   uint8_t _next;
   uint8_t _shift;
   int32_t _sum;
+  uint16_t _samples;
 
   T _buffer[N];
   T _result;
@@ -56,10 +58,11 @@ MovingAverage<T, N>::MovingAverage():
   _first(true),
   _next(0),
   _shift(0),
-  _sum(0) {
+  _sum(0),
+  _samples(N) {
   _result = 0;
 
-  while (N >> _shift != 1) {
+  while (_samples >> _shift != 1) {
     _shift++;
   }
 }
@@ -87,27 +90,40 @@ T MovingAverage<T, N>::add(T value) {
   } else {
     _sum = _sum - _buffer[_next] + value;
     _buffer[_next] = value;
-    _next = (_next + 1) & (N - 1);
+    _next = (_next + 1) & (_samples - 1);
   }
 
-  _result = (_sum + (N >> 1)) >> _shift;  // same as (_sum + (N / 2)) / N;
+  _result = (_sum + (_samples >> 1)) >> _shift;  // same as (_sum + (_samples / 2)) / _samples;
 
   return _result;
 }
 
 template <class T, uint16_t N>
 void MovingAverage<T, N>::fill(T value) {
-  for (uint16_t i = 0; i < N; i++) {
+  for (uint16_t i = 0; i < _samples; i++) {
     _buffer[i] = value;
   }
 
-  _sum = value * N;
+  _sum = value * _samples;
   _next = 0;
 }
 
 template <class T, uint16_t N>
 void MovingAverage<T, N>::reset() {
   _first = true;
+}
+
+template <class T, uint16_t N>
+void MovingAverage<T, N>::set_samples(uint16_t samples) {
+  if (samples <= N) {
+    _samples = samples;
+
+    reset();
+
+    while (_samples >> _shift != 1) {
+      _shift++;
+    }
+  }
 }
 
 #endif

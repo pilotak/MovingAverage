@@ -4,3 +4,4 @@ get_sum	KEYWORD2
 add	KEYWORD2
 reset	KEYWORD2
 fill	KEYWORD2
+set_samples KEYWORD2
