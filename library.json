@@ -13,6 +13,6 @@
       "email": "info@pavelslama.cz",
       "url": "https://github.com/pilotak"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "frameworks": "arduino, mbed"
 }
