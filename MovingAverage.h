@@ -120,6 +120,8 @@ void MovingAverage<T, N>::set_samples(uint16_t samples) {
 
     reset();
 
+    _shift = 0;
+
     while (_samples >> _shift != 1) {
       _shift++;
     }
