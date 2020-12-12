@@ -1,5 +1,8 @@
 # Moving average filter
-[![Build Status](https://travis-ci.org/pilotak/MovingAverage.svg?branch=master)](https://travis-ci.org/pilotak/MovingAverage)
+[![build](https://github.com/pilotak/MovingAverage/workflows/build/badge.svg)](https://github.com/pilotak/MovingAverage/actions) 
+[![Framework Badge Arduino](https://img.shields.io/badge/framework-arduino-00979C.svg)](https://arduino.cc)
+[![Framework Badge mbed](https://img.shields.io/badge/framework-mbed-008fbe.svg)](https://os.mbed.com/)
+
 
 **_Buffer_** type can be:
  - `uint8_t` or `int8_t` with maximum buffer length of **16843009**
@@ -8,6 +11,9 @@
 
 **_Buffer length_**:
 - "binary" length only: 2, 4, 8, 16, 32, 64, 128, etc.
+
+## Arduino example
+Please see `examples` folder
 
 ## Mbed example
 ```cpp
@@ -19,34 +25,11 @@ MovingAverage <uint8_t, 16> filter;
 
 int main() {
     printf("result: %u\n", filter.add(255)); // insert new number and get result
-    printf("result: %u\n", filter.add(6)); // insert new number and get result
-    printf("result: %u\n", filter.add(9)); // insert new number and get result
-    printf("result: %u\n", filter.get()); // get last result, without adding a newone
+    printf("result: %u\n", filter.add(6));   // insert new number and get result
+    printf("result: %u\n", filter.add(9));   // insert new number and get result
+    printf("result: %u\n", filter.get());    // get last result, without adding a newone
 
     return 0;
-}
-```
-## Arduino example
-```cpp
-#include "MovingAverage.h"
-
-// Buffer (and added samples) will be initialised as uint8_t, total 16 samples
-MovingAverage <uint8_t, 16> filter;
-
-void setup(){
-    Serial.begin(9600);
-    Serial.print("result: ");
-    Serial.println(filter.add(255)); // insert new number and get result
-    Serial.print("result: ");
-    Serial.println(filter.add(6)); // insert new number and get result
-    Serial.print("result: ");
-    Serial.println(filter.add(9)); // insert new number and get result
-    Serial.print("result: ");
-    Serial.println(filter.get()); // get last result, without adding a newone
-}
-
-void loop(){
-
 }
 ```
 
