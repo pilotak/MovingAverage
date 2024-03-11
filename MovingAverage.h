@@ -62,9 +62,15 @@ MovingAverage<T, N>::MovingAverage():
   _samples(N) {
   _result = 0;
 
+  // prevent N==0
+  static_assert(N > 0, "Buffer length must be greater than 0");
+
   while (_samples >> _shift != 1) {
     _shift++;
   }
+
+  _samples = 1 << _shift; //ensure _samples is a power of 2
+
 }
 
 template <class T, uint16_t N>
