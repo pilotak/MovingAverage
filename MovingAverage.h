@@ -131,6 +131,9 @@ void MovingAverage<T, N>::set_samples(uint16_t samples) {
     while (_samples >> _shift != 1) {
       _shift++;
     }
+
+    _samples = 1 << _shift; //ensure _samples is a power of 2
+
   }
 }
 
