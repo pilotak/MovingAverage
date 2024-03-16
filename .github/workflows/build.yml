@@ -34,7 +34,7 @@ jobs:
   arduino-build:
     strategy:
       matrix:
-        board: ["UNO", "Zero", "ATTiny85", "ESP8266", "ESP32", "STM32F103C8"]
+        board: ["UNO", "Zero", "ESP8266", "ESP32", "STM32F103C8"]
         include:
           - board: "UNO"
             platform: "arduino:avr"
@@ -46,10 +46,10 @@ jobs:
             fqbn: "arduino:samd:arduino_zero_native"
             url: ""
 
-          - board: "ATTiny85"
-            platform: "ATTinyCore:avr"
-            fqbn: "ATTinyCore:avr:attinyx5"
-            url: http://drazzy.com/package_drazzy.com_index.json
+          # - board: "ATTiny85"
+          #   platform: "ATTinyCore:avr"
+          #   fqbn: "ATTinyCore:avr:attinyx5"
+          #   url: http://drazzy.com/package_drazzy.com_index.json
 
           - board: "ESP8266"
             platform: "esp8266:esp8266"
