@@ -71,8 +71,6 @@ MovingAverage<T, N>::MovingAverage():
     _shift++;
   }
 
-  _samples = 1 << _shift; //ensure _samples is a power of 2
-
 }
 
 template <class T, uint16_t N>
