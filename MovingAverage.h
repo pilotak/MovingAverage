@@ -64,6 +64,8 @@ MovingAverage<T, N>::MovingAverage():
 
   // prevent N==0
   static_assert(N > 0, "Buffer length must be greater than 0");
+  // prevent N not being a power of 2
+  static_assert((N & (N - 1)) == 0, "Buffer length must be a power of 2");
 
   while (_samples >> _shift != 1) {
     _shift++;
