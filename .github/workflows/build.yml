@@ -88,7 +88,7 @@ jobs:
           pip install --upgrade pyserial
 
       - name: Setup Arduino CLI
-        uses: arduino/setup-arduino-cli@v1.1.2
+        uses: arduino/setup-arduino-cli@v2
 
       - name: "Install platform for ${{ matrix.board }}"
         run: |
