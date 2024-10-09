@@ -110,7 +110,7 @@ void MovingAverage<T, N>::fill(T value) {
     _buffer[i] = value;
   }
 
-  _sum = value * _samples;
+  _sum = (int32_t)value * _samples;
   _next = 0;
 }
 
