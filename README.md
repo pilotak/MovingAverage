@@ -10,7 +10,7 @@
  - `uint32_t` or `int32_t` but added number can be as long as 30 bits which eaquals to maximum buffer length of **2**, 29 bits number = max buffer length of **4**, etc.
 
 **_Buffer length_**:
-- "binary" length only: 2, 4, 8, 16, 32, 64, 128, etc.
+- power of 2 only: 2, 4, 8, 16, 32, 64, 128, etc.
 
 ## Arduino example
 Please see `examples` folder
