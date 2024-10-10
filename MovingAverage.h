@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2018 Pavel Slama
+Copyright (c) 2024 Pavel Slama
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,8 @@ SOFTWARE.
 
 #ifndef MOVINGAVERAGE_H
 #define MOVINGAVERAGE_H
+
+#include <inttypes.h>
 
 #if defined(__MBED__)
   #include "mbed.h"
